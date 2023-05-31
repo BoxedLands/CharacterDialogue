@@ -1,10 +1,12 @@
 package me.iatog.characterdialogue.dialogs.method;
 
 import static me.iatog.characterdialogue.util.TextUtils.colorize;
+import static me.iatog.characterdialogue.util.TextUtils.colorizeOld;
 
 import java.util.Map;
 import java.util.UUID;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
@@ -79,8 +81,8 @@ public class ChoiceMethod extends DialogMethod<CharacterDialoguePlugin> implemen
 		String model = config.getString("choice.text-model", "&a{I})&e {S}");
 
 		choiceSession.getChoices().forEach((index, choice) -> {
-			String parsedModel = colorize(model).replace("{I}", String.valueOf(index)).replace("{S}",
-					choice.getMessage());
+			String parsedModel = colorizeOld(model.replace("{I}", String.valueOf(index)).replace("{S}",
+					choice.getMessage()));
 
 			questions.append(parsedModel + " \n")
 					.event(new ClickEvent(ClickEvent.Action.RUN_COMMAND,
@@ -93,8 +95,8 @@ public class ChoiceMethod extends DialogMethod<CharacterDialoguePlugin> implemen
 
 	private BaseComponent[] getSelectText(int index) {
 		YamlFile file = provider.getFileFactory().getLanguage();
-		String text = file.getString("select-choice", "§aClick here to select #%str%").replace("%str%", index + "");
-		return new BaseComponent[] { new TextComponent(colorize(text)) };
+		String text = file.getString("select-choice", "ï¿½aClick here to select #%str%").replace("%str%", index + "");
+		return TextComponent.fromLegacyText(colorizeOld(text));
 	}
 
 	@EventHandler

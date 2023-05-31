@@ -31,5 +31,4 @@ public class PlayerJoinListener implements Listener {
 			main.getApi().enableMovement(player);
 		}
 	}
-	
 }

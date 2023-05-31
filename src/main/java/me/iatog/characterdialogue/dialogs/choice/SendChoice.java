@@ -16,7 +16,7 @@ public class SendChoice extends DialogChoice {
 	@Override
 	public void onSelect(String argument, DialogSession session, ChoiceSession choiceSession) {
 		Player player = session.getPlayer();
-		player.sendMessage(Placeholders.translate(player, TextUtils.colorize(argument)));
+		player.sendMessage(Placeholders.translate(player, argument));
 		session.destroy();
 	}
 }

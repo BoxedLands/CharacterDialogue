@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import net.kyori.adventure.text.Component;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -97,8 +98,8 @@ public class CharacterDialogueCommand implements CommandClass {
 		sender.sendMessage("§aCleared " + arg + "'s cache");
 	}
 
-	private List<String> translateList(List<String> list) {
-		List<String> newList = new ArrayList<>();
+	private List<Component> translateList(List<String> list) {
+		List<Component> newList = new ArrayList<>();
 		list.forEach((line) -> {
 			newList.add(TextUtils.colorize(line));
 		});

@@ -12,6 +12,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import static me.iatog.characterdialogue.util.TextUtils.colorize;
+import static me.iatog.characterdialogue.util.TextUtils.colorizeOld;
 
 public class ItemStackBuilder {
 	private ItemStack item;
@@ -73,13 +74,13 @@ public class ItemStackBuilder {
 	}
 
 	public ItemStackBuilder setName(String text) {
-		this.name = colorize(text);
+		this.name = colorizeOld(text);
 		return this;
 	}
 
 	public ItemStackBuilder setLore(List<String> lore) {
 		lore.forEach((line) -> {
-			this.lore.add(colorize("&f" + line));
+			this.lore.add(colorizeOld("&f" + line));
 		});
 		return this;
 	}
@@ -87,7 +88,7 @@ public class ItemStackBuilder {
 	public ItemStackBuilder setLore(String... lore) {
 		this.lore.clear();
 		for (String line : lore) {
-			this.lore.add(colorize("&f" + line));
+			this.lore.add(colorizeOld("&f" + line));
 		}
 		return this;
 	}

@@ -57,7 +57,8 @@ public class NPCInteractListener implements Listener {
 			
 			if(!player.hasPermission(permission)) {
 				if(message != null) {
-					player.sendMessage(Placeholders.translate(player, message).replace("%npc_name%", dialogue.getDisplayName()));
+					player.sendMessage(Placeholders.translate(player, message.replace("%npc_name%",
+							dialogue.getDisplayName())));
 				}
 				return;
 			}

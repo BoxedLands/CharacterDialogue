@@ -185,7 +185,7 @@ public class ApiImplementation implements CharacterDialogueAPI {
 			return;
 		}
 
-		arg = Placeholders.translate(player, arg);
+		arg = Placeholders.translateOld(player, arg);
 		arg = arg.replace("%npc_name%", npcName);
 
 		DialogMethod<? extends JavaPlugin> method = main.getCache().getMethods().get(methodName);
